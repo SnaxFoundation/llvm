@@ -1,4 +1,4 @@
-//===- EosioSoftfloat ---------------===//
+//===- SnaxSoftfloat ---------------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -29,53 +29,53 @@
 
 using namespace llvm;
 
-#define DEBUG_TYPE "eosio_softfloat"
+#define DEBUG_TYPE "snax_softfloat"
 
 namespace {
-  // EosioSoftfloat - Mutate the apply function as needed 
-  struct EosioSoftfloatPass : public FunctionPass {
+  // SnaxSoftfloat - Mutate the apply function as needed 
+  struct SnaxSoftfloatPass : public FunctionPass {
     static char ID; 
-    EosioSoftfloatPass() : FunctionPass(ID) {}
+    SnaxSoftfloatPass() : FunctionPass(ID) {}
   
     bool runOnFunction(Function &f) override {
-       Function* f32add = (Function*)f.getParent()->getOrInsertFunction("_eosio_f32_add", AttributeList{},
+       Function* f32add = (Function*)f.getParent()->getOrInsertFunction("_snax_f32_add", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
-       Function* f32sub = (Function*)f.getParent()->getOrInsertFunction("_eosio_f32_sub", AttributeList{},
+       Function* f32sub = (Function*)f.getParent()->getOrInsertFunction("_snax_f32_sub", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
-       Function* f32mul = (Function*)f.getParent()->getOrInsertFunction("_eosio_f32_mul", AttributeList{},
+       Function* f32mul = (Function*)f.getParent()->getOrInsertFunction("_snax_f32_mul", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
-       Function* f32div = (Function*)f.getParent()->getOrInsertFunction("_eosio_f32_div", AttributeList{},
+       Function* f32div = (Function*)f.getParent()->getOrInsertFunction("_snax_f32_div", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
-       Function* f32rem = (Function*)f.getParent()->getOrInsertFunction("_eosio_f32_rem", AttributeList{},
+       Function* f32rem = (Function*)f.getParent()->getOrInsertFunction("_snax_f32_rem", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
 
-       Function* f64add = (Function*)f.getParent()->getOrInsertFunction("_eosio_f64_add", AttributeList{},
+       Function* f64add = (Function*)f.getParent()->getOrInsertFunction("_snax_f64_add", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
-       Function* f64sub = (Function*)f.getParent()->getOrInsertFunction("_eosio_f64_sub", AttributeList{},
+       Function* f64sub = (Function*)f.getParent()->getOrInsertFunction("_snax_f64_sub", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
-       Function* f64mul = (Function*)f.getParent()->getOrInsertFunction("_eosio_f64_mul", AttributeList{},
+       Function* f64mul = (Function*)f.getParent()->getOrInsertFunction("_snax_f64_mul", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
-       Function* f64div = (Function*)f.getParent()->getOrInsertFunction("_eosio_f64_div", AttributeList{},
+       Function* f64div = (Function*)f.getParent()->getOrInsertFunction("_snax_f64_div", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
-       Function* f64rem = (Function*)f.getParent()->getOrInsertFunction("_eosio_f64_rem", AttributeList{},
+       Function* f64rem = (Function*)f.getParent()->getOrInsertFunction("_snax_f64_rem", AttributeList{},
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()),
                                                                        Type::getFloatTy(f.getContext()));
@@ -147,8 +147,8 @@ namespace {
   };
 }
 
-char EosioSoftfloatPass::ID = 0;
-static RegisterPass<EosioSoftfloatPass> X("softfloat_fixup", "Eosio Softfloat Fixups");
+char SnaxSoftfloatPass::ID = 0;
+static RegisterPass<SnaxSoftfloatPass> X("softfloat_fixup", "Snax Softfloat Fixups");
 
-static void registerEosioSoftfloatPass(const PassManagerBuilder&, legacy::PassManagerBase& PM) { PM.add(new EosioSoftfloatPass()); }
-static RegisterStandardPasses RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible, registerEosioSoftfloatPass);
+static void registerSnaxSoftfloatPass(const PassManagerBuilder&, legacy::PassManagerBase& PM) { PM.add(new SnaxSoftfloatPass()); }
+static RegisterStandardPasses RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible, registerSnaxSoftfloatPass);

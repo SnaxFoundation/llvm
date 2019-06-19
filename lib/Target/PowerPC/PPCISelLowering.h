@@ -477,9 +477,9 @@ namespace llvm {
     bool isVMRGHShuffleMask(ShuffleVectorSDNode *N, unsigned UnitSize,
                             unsigned ShuffleKind, SelectionDAG &DAG);
 
-    /// isVMRGEOShuffleMask - Return true if this is a shuffle mask suitable for
+    /// isVMRGSNAXhuffleMask - Return true if this is a shuffle mask suitable for
     /// a VMRGEW or VMRGOW instruction
-    bool isVMRGEOShuffleMask(ShuffleVectorSDNode *N, bool CheckEven,
+    bool isVMRGSNAXhuffleMask(ShuffleVectorSDNode *N, bool CheckEven,
                              unsigned ShuffleKind, SelectionDAG &DAG);
     /// isXXSLDWIShuffleMask - Return true if this is a shuffle mask suitable
     /// for a XXSLDWI instruction.

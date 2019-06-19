@@ -156,17 +156,17 @@ void WebAssemblyAsmPrinter::EmitEndOfAsmFile(Module &M) {
    
   bool has_import = false;
   bool has_abi    = false;
-  bool has_eosio_action = false;
-  bool has_eosio_notify = false;
+  bool has_snax_action = false;
+  bool has_snax_notify = false;
   for (const auto &F : M) {
-     if (F.hasFnAttribute("eosio_wasm_import"))
+     if (F.hasFnAttribute("snax_wasm_import"))
         has_import = true;
-     if (F.hasFnAttribute("eosio_wasm_abi"))
+     if (F.hasFnAttribute("snax_wasm_abi"))
         has_abi = true;
-     if (F.hasFnAttribute("eosio_wasm_action"))
-        has_eosio_action = true;
-     if (F.hasFnAttribute("eosio_wasm_notify"))
-        has_eosio_notify = true;
+     if (F.hasFnAttribute("snax_wasm_action"))
+        has_snax_action = true;
+     if (F.hasFnAttribute("snax_wasm_notify"))
+        has_snax_notify = true;
   }
 
   if (has_import) {
@@ -176,7 +176,7 @@ void WebAssemblyAsmPrinter::EmitEndOfAsmFile(Module &M) {
          OutContext.getWasmSection(SectionName, SectionKind::getMetadata());
      OutStreamer->SwitchSection(mySection);
      for (const auto &F : M) {
-        if (F.hasFnAttribute("eosio_wasm_import")) {
+        if (F.hasFnAttribute("snax_wasm_import")) {
            OutStreamer->EmitULEB128IntValue(F.getName().size());
            OutStreamer->EmitBytes(F.getName());
         }
@@ -185,43 +185,43 @@ void WebAssemblyAsmPrinter::EmitEndOfAsmFile(Module &M) {
   }
   if (has_abi) {
      OutStreamer->PushSection(); 
-     std::string SectionName = ".eosio_abi";
+     std::string SectionName = ".snax_abi";
      MCSectionWasm *mySection =
          OutContext.getWasmSection(SectionName, SectionKind::getMetadata());
      OutStreamer->SwitchSection(mySection);
      for (const auto &F : M) {
-        if (F.hasFnAttribute("eosio_wasm_abi")) {
-           StringRef abi = F.getFnAttribute("eosio_wasm_abi").getValueAsString();
+        if (F.hasFnAttribute("snax_wasm_abi")) {
+           StringRef abi = F.getFnAttribute("snax_wasm_abi").getValueAsString();
            OutStreamer->EmitULEB128IntValue(abi.size());
            OutStreamer->EmitBytes(abi);
         }
      }
      OutStreamer->PopSection();
   }
-  if (has_eosio_action) {
+  if (has_snax_action) {
      OutStreamer->PushSection(); 
-     std::string SectionName = ".eosio_actions";
+     std::string SectionName = ".snax_actions";
      MCSectionWasm *mySection =
          OutContext.getWasmSection(SectionName, SectionKind::getMetadata());
      OutStreamer->SwitchSection(mySection);
      for (const auto &F : M) {
-        if (F.hasFnAttribute("eosio_wasm_action")) {
-           StringRef action_name = F.getFnAttribute("eosio_wasm_action").getValueAsString();
+        if (F.hasFnAttribute("snax_wasm_action")) {
+           StringRef action_name = F.getFnAttribute("snax_wasm_action").getValueAsString();
            OutStreamer->EmitULEB128IntValue(action_name.size());
            OutStreamer->EmitBytes(action_name);
         }
      }
      OutStreamer->PopSection();
   }
-  if (has_eosio_notify) {
+  if (has_snax_notify) {
      OutStreamer->PushSection(); 
-     std::string SectionName = ".eosio_notify";
+     std::string SectionName = ".snax_notify";
      MCSectionWasm *mySection =
          OutContext.getWasmSection(SectionName, SectionKind::getMetadata());
      OutStreamer->SwitchSection(mySection);
      for (const auto &F : M) {
-        if (F.hasFnAttribute("eosio_wasm_notify")) {
-           StringRef name = F.getFnAttribute("eosio_wasm_notify").getValueAsString();
+        if (F.hasFnAttribute("snax_wasm_notify")) {
+           StringRef name = F.getFnAttribute("snax_wasm_notify").getValueAsString();
            OutStreamer->EmitULEB128IntValue(name.size());
            OutStreamer->EmitBytes(name);
         }

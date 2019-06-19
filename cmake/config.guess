@@ -1019,8 +1019,8 @@ EOF
     i*86:XTS-300:*:STOP)
 	echo ${UNAME_MACHINE}-unknown-stop
 	exit ;;
-    i*86:atheos:*:*)
-	echo ${UNAME_MACHINE}-unknown-atheos
+    i*86:athsnax:*:*)
+	echo ${UNAME_MACHINE}-unknown-athsnax
 	exit ;;
     i*86:syllable:*:*)
 	echo ${UNAME_MACHINE}-pc-syllable
@@ -1088,7 +1088,7 @@ EOF
 	  echo i860-unknown-sysv${UNAME_RELEASE}  # Unknown i860-SVR4
 	fi
 	exit ;;
-    mini*:CTIX:SYS*5:*)
+    mini*:CTIX:SNAX*5:*)
 	# "miniframe"
 	echo m68010-convergent-sysv
 	exit ;;
@@ -1188,13 +1188,13 @@ EOF
 	fi
 	exit ;;
     BeBox:BeOS:*:*)	# BeOS running on hardware made by Be, PPC only.
-	echo powerpc-be-beos
+	echo powerpc-be-bsnax
 	exit ;;
     BeMac:BeOS:*:*)	# BeOS running on Mac or Mac clone, PPC only.
-	echo powerpc-apple-beos
+	echo powerpc-apple-bsnax
 	exit ;;
     BePC:BeOS:*:*)	# BeOS running on Intel PC compatible.
-	echo i586-pc-beos
+	echo i586-pc-bsnax
 	exit ;;
     BePC:Haiku:*:*)	# Haiku running on Intel PC compatible.
 	echo i586-pc-haiku

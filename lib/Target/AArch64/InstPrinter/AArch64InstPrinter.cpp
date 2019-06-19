@@ -743,7 +743,7 @@ bool AArch64InstPrinter::printSysAlias(const MCInst *MI,
                                        raw_ostream &O) {
 #ifndef NDEBUG
   unsigned Opcode = MI->getOpcode();
-  assert(Opcode == AArch64::SYSxt && "Invalid opcode for SYS alias!");
+  assert(Opcode == AArch64::SYSxt && "Invalid opcode for SNAX alias!");
 #endif
 
   const MCOperand &Op1 = MI->getOperand(0);

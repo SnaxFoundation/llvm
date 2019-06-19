@@ -2,7 +2,7 @@
 
 source_filename = "test/CodeGen/ARM/2010-06-25-Thumb2ITInvalidIterator.ll"
 target datalayout = "e-p:32:32:32-i1:8:32-i8:8:32-i16:16:32-i32:32:32-i64:32:32-f32:32:32-f64:32:32-v64:64:64-v128:128:128-a0:0:32-n32"
-target triple = "thumbv7-apple-darwin3.0.0-iphoneos"
+target triple = "thumbv7-apple-darwin3.0.0-iphonsnax"
 
 @length = common global i32 0, align 4, !dbg !0
 

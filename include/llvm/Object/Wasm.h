@@ -140,7 +140,7 @@ public:
   ArrayRef<StringRef> allowed_imports() const { return AllowedImports; }
   ArrayRef<StringRef> actions() const { return Actions; }
   ArrayRef<StringRef> notify() const { return Notify; }
-  StringRef get_eosio_abi() const { return eosio_abi; }
+  StringRef get_snax_abi() const { return snax_abi; }
   uint32_t startFunction() const { return StartFunction; }
   uint32_t getNumImportedGlobals() const { return NumImportedGlobals; }
   uint32_t getNumImportedFunctions() const { return NumImportedFunctions; }
@@ -244,7 +244,7 @@ private:
   Error parseLinkingSectionSymtab(ReadContext &Ctx);
   Error parseLinkingSectionComdat(ReadContext &Ctx);
   Error parseRelocSection(StringRef Name, ReadContext &Ctx);
-  Error parseEosioABISection(ReadContext &Ctx);
+  Error parseSnaxABISection(ReadContext &Ctx);
 
   wasm::WasmObjectHeader Header;
   std::vector<WasmSection> Sections;
@@ -263,7 +263,7 @@ private:
   std::vector<wasm::WasmFunction> Functions;
   std::vector<WasmSymbol> Symbols;
   std::vector<wasm::WasmFunctionName> DebugNames;
-  StringRef eosio_abi;
+  StringRef snax_abi;
   uint32_t StartFunction = -1;
   bool HasLinkingSection = false;
   wasm::WasmLinkingData LinkingData;

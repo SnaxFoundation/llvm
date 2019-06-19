@@ -522,7 +522,7 @@ static const char *getPlatformName(MachO::PlatformType Type) {
   case MachO::PLATFORM_IOS:      return "ios";
   case MachO::PLATFORM_TVOS:     return "tvos";
   case MachO::PLATFORM_WATCHOS:  return "watchos";
-  case MachO::PLATFORM_BRIDGEOS: return "bridgeos";
+  case MachO::PLATFORM_BRIDGSNAX: return "bridgsnax";
   }
   llvm_unreachable("Invalid Mach-O platform type");
 }

@@ -486,7 +486,7 @@ enum PlatformType {
   PLATFORM_IOS = 2,
   PLATFORM_TVOS = 3,
   PLATFORM_WATCHOS = 4,
-  PLATFORM_BRIDGEOS = 5
+  PLATFORM_BRIDGSNAX = 5
 };
 
 // Values for tools enum in build_tool_version.
@@ -816,7 +816,7 @@ struct encryption_info_command_64 {
 
 struct version_min_command {
   uint32_t cmd;     // LC_VERSION_MIN_MACOSX or
-                    // LC_VERSION_MIN_IPHONEOS
+                    // LC_VERSION_MIN_IPHONSNAX
   uint32_t cmdsize; // sizeof(struct version_min_command)
   uint32_t version; // X.Y.Z is encoded in nibbles xxxx.yy.zz
   uint32_t sdk;     // X.Y.Z is encoded in nibbles xxxx.yy.zz

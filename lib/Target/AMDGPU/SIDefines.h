@@ -236,7 +236,7 @@ enum Id { // Message ID, width(4) [3:0].
   ID_MASK_ = (((1 << ID_WIDTH_) - 1) << ID_SHIFT_)
 };
 
-enum Op { // Both GS and SYS operation IDs.
+enum Op { // Both GS and SNAX operation IDs.
   OP_UNKNOWN_ = -1,
   OP_SHIFT_ = 4,
   // width(2) [5:4]

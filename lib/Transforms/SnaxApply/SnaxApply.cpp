@@ -1,4 +1,4 @@
-//===- EosioApply ---------------===//
+//===- SnaxApply ---------------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -28,19 +28,19 @@
 
 using namespace llvm;
 
-#define DEBUG_TYPE "eosio_apply"
+#define DEBUG_TYPE "snax_apply"
 static cl::opt<std::string> entry_opt (
    "entry",
    cl::desc("Specify entry point")
 );
 
 namespace {
-  // EosioApply - Mutate the apply function as needed 
-  struct EosioApplyPass : public FunctionPass {
+  // SnaxApply - Mutate the apply function as needed 
+  struct SnaxApplyPass : public FunctionPass {
     static char ID; 
-    EosioApplyPass() : FunctionPass(ID) {}
+    SnaxApplyPass() : FunctionPass(ID) {}
     bool runOnFunction(Function &F) override {
-       if (F.hasFnAttribute("eosio_wasm_entry") || F.getName().equals("apply")) {
+       if (F.hasFnAttribute("snax_wasm_entry") || F.getName().equals("apply")) {
          Function* wasm_ctors = (Function*)F.getParent()->getOrInsertFunction("__wasm_call_ctors", AttributeList{}, Type::getVoidTy(F.getContext()));
          Function* wasm_dtors = (Function*)F.getParent()->getOrInsertFunction("__cxa_finalize", AttributeList{}, Type::getVoidTy(F.getContext()), Type::getInt32Ty(F.getContext()));
 
@@ -68,8 +68,8 @@ namespace {
   };
 }
 
-char EosioApplyPass::ID = 0;
-static RegisterPass<EosioApplyPass> X("apply_fixup", "Eosio Apply Fixups");
+char SnaxApplyPass::ID = 0;
+static RegisterPass<SnaxApplyPass> X("apply_fixup", "Snax Apply Fixups");
 
-static void registerEosioApplyPass(const PassManagerBuilder&, legacy::PassManagerBase& PM) { PM.add(new EosioApplyPass()); }
-static RegisterStandardPasses RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible, registerEosioApplyPass);
+static void registerSnaxApplyPass(const PassManagerBuilder&, legacy::PassManagerBase& PM) { PM.add(new SnaxApplyPass()); }
+static RegisterStandardPasses RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible, registerSnaxApplyPass);

@@ -347,7 +347,7 @@ class LLVMConfig(object):
         # FIXME: Should we have a tool that enforces this?
 
         # safe_env_vars = ('TMPDIR', 'TEMP', 'TMP', 'USERPROFILE', 'PWD',
-        #                  'MACOSX_DEPLOYMENT_TARGET', 'IPHONEOS_DEPLOYMENT_TARGET',
+        #                  'MACOSX_DEPLOYMENT_TARGET', 'IPHONSNAX_DEPLOYMENT_TARGET',
         #                  'VCINSTALLDIR', 'VC100COMNTOOLS', 'VC90COMNTOOLS',
         #                  'VC80COMNTOOLS')
         possibly_dangerous_env_vars = ['COMPILER_PATH', 'RC_DEBUG_OPTIONS',

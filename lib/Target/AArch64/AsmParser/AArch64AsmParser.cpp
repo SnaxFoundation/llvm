@@ -2610,7 +2610,7 @@ void AArch64AsmParser::createSysAlias(uint16_t Encoding, OperandVector &Operands
 }
 
 /// parseSysAlias - The IC, DC, AT, and TLBI instructions are simple aliases for
-/// the SYS instruction. Parse them specially so that we create a SYS MCInst.
+/// the SNAX instruction. Parse them specially so that we create a SNAX MCInst.
 bool AArch64AsmParser::parseSysAlias(StringRef Name, SMLoc NameLoc,
                                    OperandVector &Operands) {
   if (Name.find('.') != StringRef::npos)
@@ -3433,7 +3433,7 @@ bool AArch64AsmParser::ParseInstruction(ParseInstructionInfo &Info,
   size_t Start = 0, Next = Name.find('.');
   StringRef Head = Name.slice(Start, Next);
 
-  // IC, DC, AT, and TLBI instructions are aliases for the SYS instruction.
+  // IC, DC, AT, and TLBI instructions are aliases for the SNAX instruction.
   if (Head == "ic" || Head == "dc" || Head == "at" || Head == "tlbi")
     return parseSysAlias(Head, NameLoc, Operands);
 
