@@ -1019,8 +1019,8 @@ EOF
     i*86:XTS-300:*:STOP)
 	echo ${UNAME_MACHINE}-unknown-stop
 	exit ;;
-    i*86:athsnax:*:*)
-	echo ${UNAME_MACHINE}-unknown-athsnax
+    i*86:atheos:*:*)
+	echo ${UNAME_MACHINE}-unknown-atheos
 	exit ;;
     i*86:syllable:*:*)
 	echo ${UNAME_MACHINE}-pc-syllable
@@ -1188,13 +1188,13 @@ EOF
 	fi
 	exit ;;
     BeBox:BeOS:*:*)	# BeOS running on hardware made by Be, PPC only.
-	echo powerpc-be-bsnax
+	echo powerpc-be-beos
 	exit ;;
     BeMac:BeOS:*:*)	# BeOS running on Mac or Mac clone, PPC only.
-	echo powerpc-apple-bsnax
+	echo powerpc-apple-beos
 	exit ;;
     BePC:BeOS:*:*)	# BeOS running on Intel PC compatible.
-	echo i586-pc-bsnax
+	echo i586-pc-beos
 	exit ;;
     BePC:Haiku:*:*)	# Haiku running on Intel PC compatible.
 	echo i586-pc-haiku
