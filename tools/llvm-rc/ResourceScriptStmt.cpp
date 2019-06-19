@@ -193,7 +193,7 @@ using VersionInfoFixedType = VersionInfoFixed::VersionInfoFixedType;
 const StringRef
     VersionInfoFixed::FixedFieldsNames[VersionInfoFixed::FtNumTypes] = {
         "",          "FILEVERSION", "PRODUCTVERSION", "FILEFLAGSMASK",
-        "FILEFLAGS", "FILSNAX",      "FILETYPE",       "FILESUBTYPE"};
+        "FILEFLAGS", "FILEOS",      "FILETYPE",       "FILESUBTYPE"};
 
 const StringMap<VersionInfoFixedType> VersionInfoFixed::FixedFieldsInfoMap = {
     {FixedFieldsNames[FtFileVersion], FtFileVersion},

@@ -9,7 +9,7 @@
 // CHECK:   version 10.10
 
 // CHECK-IOS: Load command
-// CHECK-IOS:       cmd LC_VERSION_MIN_IPHONSNAX
+// CHECK-IOS:       cmd LC_VERSION_MIN_IPHONEOS
 // CHECK-IOS:   cmdsize 16
 // CHECK-IOS:   version 8.0
 
@@ -29,7 +29,7 @@
 
 // CHECK-BRIDGSNAX:            cmd LC_BUILD_VERSION
 // CHECK-BRIDGSNAX-NEXT:   cmdsize 24
-// CHECK-BRIDGSNAX-NEXT:  platform bridgsnax
+// CHECK-BRIDGSNAX-NEXT:  platform bridgeos
 // CHECK-BRIDGSNAX-NEXT:       sdk n/a
 // CHECK-BRIDGSNAX-NEXT:     minos 2.0
 // CHECK-BRIDGSNAX-NEXT:    ntools 0
