@@ -1,0 +1,8 @@
+[submodule "tools/clang"]
+	path = tools/clang
+	url = https://github.com/SnaxFoundation/clang.git
+	branch = snax
+[submodule "tools/lld"]
+	path = tools/lld
+	url = https://github.com/SnaxFoundation/lld.git
+	branch = snax

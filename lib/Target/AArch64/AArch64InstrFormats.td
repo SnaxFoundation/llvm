@@ -1177,7 +1177,7 @@ class MSRpstateImm0_1
   let hasCompleteDecoder = 0;
 }
 
-// SYS and SYSL generic system instructions.
+// SNAX and SYSL generic system instructions.
 def SysCRAsmOperand : AsmOperandClass {
   let Name = "SysCR";
   let ParserMethod = "tryParseSysCROperand";

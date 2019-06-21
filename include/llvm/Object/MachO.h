@@ -613,7 +613,7 @@ public:
     case MachO::PLATFORM_IOS: return "ios";
     case MachO::PLATFORM_TVOS: return "tvos";
     case MachO::PLATFORM_WATCHOS: return "watchos";
-    case MachO::PLATFORM_BRIDGEOS: return "bridgeos";
+    case MachO::PLATFORM_BRIDGSNAX: return "bridgsnax";
     default:
       std::string ret;
       raw_string_ostream ss(ret);

@@ -1562,7 +1562,7 @@ static bool isVMerge(ShuffleVectorSDNode *N, unsigned IndexOffset,
  * \param[in] DAG The current SelectionDAG
  * \return true iff this shuffle mask
  */
-bool PPC::isVMRGEOShuffleMask(ShuffleVectorSDNode *N, bool CheckEven,
+bool PPC::isVMRGSNAXhuffleMask(ShuffleVectorSDNode *N, bool CheckEven,
                               unsigned ShuffleKind, SelectionDAG &DAG) {
   if (DAG.getDataLayout().isLittleEndian()) {
     unsigned indexOffset = CheckEven ? 4 : 0;
@@ -8415,8 +8415,8 @@ SDValue PPCTargetLowering::LowerVECTOR_SHUFFLE(SDValue Op,
         PPC::isVMRGHShuffleMask(SVOp, 4, 1, DAG) ||
         (Subtarget.hasP8Altivec() && (
          PPC::isVPKUDUMShuffleMask(SVOp, 1, DAG) ||
-         PPC::isVMRGEOShuffleMask(SVOp, true, 1, DAG) ||
-         PPC::isVMRGEOShuffleMask(SVOp, false, 1, DAG)))) {
+         PPC::isVMRGSNAXhuffleMask(SVOp, true, 1, DAG) ||
+         PPC::isVMRGSNAXhuffleMask(SVOp, false, 1, DAG)))) {
       return Op;
     }
   }
@@ -8436,8 +8436,8 @@ SDValue PPCTargetLowering::LowerVECTOR_SHUFFLE(SDValue Op,
       PPC::isVMRGHShuffleMask(SVOp, 4, ShuffleKind, DAG) ||
       (Subtarget.hasP8Altivec() && (
        PPC::isVPKUDUMShuffleMask(SVOp, ShuffleKind, DAG) ||
-       PPC::isVMRGEOShuffleMask(SVOp, true, ShuffleKind, DAG) ||
-       PPC::isVMRGEOShuffleMask(SVOp, false, ShuffleKind, DAG))))
+       PPC::isVMRGSNAXhuffleMask(SVOp, true, ShuffleKind, DAG) ||
+       PPC::isVMRGSNAXhuffleMask(SVOp, false, ShuffleKind, DAG))))
     return Op;
 
   // Check to see if this is a shuffle of 4-byte values.  If so, we can use our

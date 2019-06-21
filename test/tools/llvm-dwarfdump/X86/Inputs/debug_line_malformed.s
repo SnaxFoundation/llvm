@@ -136,11 +136,11 @@
 .Lunit_long_opcode_end:
 
 # No end of sequence
-.long   .Lunit_no_eos_end - .Lunit_no_eos_start # unit length
-.Lunit_no_eos_start:
+.long   .Lunit_no_snax_end - .Lunit_no_snax_start # unit length
+.Lunit_no_snax_start:
 .short  4               # version
-.long   .Lprologue_no_eos_end-.Lprologue_no_eos_start # Length of Prologue
-.Lprologue_no_eos_start:
+.long   .Lprologue_no_snax_end-.Lprologue_no_snax_start # Length of Prologue
+.Lprologue_no_snax_start:
 .byte   1               # Minimum Instruction Length
 .byte   1               # Maximum Operations per Instruction
 .byte   1               # Default is_stmt
@@ -156,11 +156,11 @@
 .asciz "file2"
 .byte   1, 0, 0
 .byte   0
-.Lprologue_no_eos_end:
+.Lprologue_no_snax_end:
 .byte   0, 9, 2        # DW_LNE_set_address
 .quad   0xdeadfade
 .byte   1              # DW_LNS_copy
-.Lunit_no_eos_end:
+.Lunit_no_snax_end:
 
 # Trailing good section
 .long   .Lunit_good_end - .Lunit_good_start # Length of Unit (DWARF-32 format)

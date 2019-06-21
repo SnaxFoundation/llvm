@@ -7,7 +7,7 @@ SET(CMAKE_C_COMPILER_WORKS True)
 SET(IOS True)
 
 if(NOT CMAKE_OSX_SYSROOT)
-  execute_process(COMMAND xcodebuild -version -sdk iphoneos Path
+  execute_process(COMMAND xcodebuild -version -sdk iphonsnax Path
     OUTPUT_VARIABLE SDKROOT
     ERROR_QUIET
     OUTPUT_STRIP_TRAILING_WHITESPACE)

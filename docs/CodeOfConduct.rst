@@ -27,7 +27,7 @@ LLVM Foundation. This includes IRC channels, mailing lists, bug trackers, LLVM
 events such as the developer meetings and socials, and any other forums created
 by the project that the community uses for communication. It applies to all of
 your communication and conduct in these spaces, including emails, chats, things
-you say, slides, videos, posters, signs, or even t-shirts you display in these
+you say, slides, vidsnax, posters, signs, or even t-shirts you display in these
 spaces. In addition, violations of this code outside these spaces may, in rare
 cases, affect a person's ability to participate within them, when the conduct
 amounts to an egregious violation of this code.
